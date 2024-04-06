@@ -21,7 +21,7 @@ public class Enemy : MonoBehaviour
     private void Move()
     {
         SetDirection();
-        transform.position = Vector3.Lerp(transform.position, _targetPoints[_currentTarget].position, _moveSpeed);
+        transform.position = Vector3.Lerp(transform.position, _targetPoints[_currentTarget].position, _moveSpeed * Time.deltaTime);
     }
 
     private void SetDirection()
