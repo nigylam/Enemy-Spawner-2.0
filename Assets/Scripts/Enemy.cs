@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] private float _moveSpeed = 1f;
+    [SerializeField] private float _speed = 1f;
     [SerializeField] private float _closeDistanceToTarget = 0.5f;
 
     private Transform[] _targetPoints;
@@ -21,7 +21,7 @@ public class Enemy : MonoBehaviour
     private void Move()
     {
         SetDirection();
-        transform.position = Vector3.Lerp(transform.position, _targetPoints[_currentTarget].position, _moveSpeed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, _targetPoints[_currentTarget].position, _speed * Time.deltaTime);
     }
 
     private void SetDirection()
